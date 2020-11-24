@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickBuy.Repositorio.Contexto;
 
+
 namespace QuickBuy.web
 {
     public class Startup
@@ -31,9 +32,9 @@ namespace QuickBuy.web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var connectionString = Configuration.GetConnectionString("QuickBuyDB");
+            var connectionString = Configuration.GetValue<string>("ConnectionString:QuickBuyDB");
             services.AddDbContext<QuickBuyContexto>(option =>
-                                                        option.UseLazyLoadingProxies()
+                                                              option.UseLazyLoadingProxies()
                                                               .UseMySql (connectionString,
                                                                               m => m.MigrationsAssembly("QuickBuy.Repositorio")));
 
