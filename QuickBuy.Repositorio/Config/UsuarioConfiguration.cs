@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using QuickBuy.Dominio.Entidades;
+using System.ComponentModel;
 
 namespace QuickBuy.Repositorio.Config {
     class UsuarioConfiguration : IEntityTypeConfiguration<Usuario> {
@@ -35,6 +36,8 @@ namespace QuickBuy.Repositorio.Config {
 
             builder.HasMany(u => u.Pedidos)
                     .WithOne(p => p.Usuario);
+
+
 
         }
     }
