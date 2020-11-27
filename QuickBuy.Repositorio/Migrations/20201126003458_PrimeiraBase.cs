@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickBuy.Repositorio.Migrations
 {
-    public partial class PrimeiraVersaoBase : Migration
+    public partial class PrimeiraBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

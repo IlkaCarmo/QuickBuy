@@ -9,8 +9,8 @@ using QuickBuy.Repositorio.Contexto;
 namespace QuickBuy.Repositorio.Migrations
 {
     [DbContext(typeof(QuickBuyContexto))]
-    [Migration("20201124233531_PrimeiraVersaoBase")]
-    partial class PrimeiraVersaoBase
+    [Migration("20201126011041_CargaFormaPagamento")]
+    partial class CargaFormaPagamento
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -141,6 +141,26 @@ namespace QuickBuy.Repositorio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FormaPagamento");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descricao = "Forma de pagamento",
+                            Nome = "Boleto"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descricao = "Forma de pagamento Cartã de credito",
+                            Nome = "Cartao de credito"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descricao = "Forma de pagamento Deposito",
+                            Nome = "Deposito"
+                        });
                 });
 
             modelBuilder.Entity("QuickBuy.Dominio.Entidades.ItemPedido", b =>
